@@ -113,7 +113,6 @@ from mymod.mod1 import *
 result = mul(2, 3)
 print(result)
 #출력: 6
-import mymod.mod1 as m
 
 
 #다른 디렉터리에 있는 모듈을 불러오는 방법
@@ -124,3 +123,140 @@ import mymod.mod1 as mod1
 result = mod1.div(8, 2)
 print(result)
 #출력: 4.01
+
+
+#패키지
+#패키지는 모듈을 모아 놓은 디렉터리
+#패키지를 사용하면 모듈을 체계적으로 관리할 수 있음
+#패키지 만들기: 디렉터리이름/__init__.py
+#패키지 사용하기: import 디렉터리이름.모듈이름
+
+#예: import 패키지이름.모듈이름
+import game.sound.echo
+game.sound.echo.echo_test()
+
+#예: from 패키지이름 import 모듈이름
+from game.sound import echo
+echo.echo_test()
+
+#예: from 패키지이름.모듈이름 import 함수이름
+from game.sound.echo import echo_test
+echo_test()
+
+#__init__.py
+#패키지 디렉터리에 반드시 포함되어야 하는 파일
+#패키지 초기화 작업을 수행
+#비어 있어도 무방
+
+#패키지 변수 및 함수 정의 : 패키지 수준에서 함수를 정의 할 수 있음, __init__.py 파일에 작성
+#예: __init__.py 파일에 VERSION 변수와 print_version_info 함수 정의
+import game
+print(game.VERSION)
+game.print_version_info()
+#출력: 3.5
+#      This is game package version 3.5
+
+#패키지 내 모듈을 미리 import 하기
+#패키지 사용 시 자주 사용하는 모듈을 미리 import 하여 편리하게 사용할 수 있음
+#예: __init__.py 파일에 from . import 모듈이름 작성
+
+import game
+game.render_test()
+#출력: render
+
+from game.sound import *
+echo.echo_test()
+#출력: echo 
+
+#상대경로 패키지
+#패키지 내에서 상대경로를 사용하여 모듈을 import 할 수 있음
+
+
+#내장함수
+#파이썬에서 기본적으로 제공하는 함수
+#예: abs(), all(), any(), bin(), bool(), chr(), dir(), divmod(), enumerate(), eval(), filter(), float(), format(), hex(), id(), input(), int(), isinstance(), len(), list(), map(), max(), min(), oct(), ord(), pow(), print(), range(), round(), sorted(), str(), sum(), tuple(), type(), zip() 등
+print(abs(-5))  #출력: 5
+print(all([1, 2, 3]))  #출력: True
+print(any([0, 1, 2]))  #출력: True
+#bin
+print(chr(65))  #출력: A
+print(dir([1, 2, 3]))  #출력: ['append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+print(divmod(7, 3))  #출력: (2, 1)
+print(enumerate(['A', 'B', 'C']))  #출력: <enumerate object at 0x...>
+for i, value in enumerate(['A', 'B', 'C']):
+    print(i, value)
+#출력: 0 A
+#      1 B
+#      2 C
+print(eval('3 + 5'))  #출력: 8
+print(filter(lambda x: x > 2, [1, 2, 3, 4, 5]))  #출력: <filter object at 0x...>
+print(hex(255))  #출력: 0xff
+print(id([1, 2, 3]))  #출력: 140123456789056
+#input() 함수는 사용자 입력을 받는 함수로, 실행 시 입력 대기 상태가 됨
+#print(int('10'))  #출력: 10)
+print(isinstance(3, int))  #출력: True
+print(len('Hello'))  #출력: 5
+print(list((1, 2, 3)))  #출력: [1, 2, 3]
+print(map(lambda x: x * 2, [1, 2, 3]))  #출력: <map object at 0x...>
+print(list(map(lambda x: x * 2, [1, 2, 3])))  #출력: [2, 4, 6]
+print(max([1, 2, 3]))  #출력: 3
+print(max("apple"))  #출력: p
+print(min([1, 2, 3]))  #출력: 1
+print(min("apple"))  #출력: a
+print(oct(8))  #출력: 0o10
+print(ord('A'))  #출력: 65
+print(pow(2, 3))  #출력: 8
+print(range(5))  #출력: range(0, 5)
+for i in range(5):
+    print(i, end=' ')
+#출력: 0 1 2 3 4
+print(range(1, 10, 2))  #출력: range(1, 10, 2)  
+for i in range(1, 10, 2):
+    print(i, end=' ')
+#출력: 1 3 5 7 9
+print(round(3.14159, 2))  #출력: 3.14
+print(sorted([3, 1, 2]))  #출력: [1, 2, 3]
+print(str(123))  #출력: '123'
+print(sum([1, 2, 3]))  #출력: 6
+print(tuple([1, 2, 3]))  #출력: (1, 2, 3)
+print(type(3))  #출력: <class 'int'>
+print(zip([1, 2, 3], ['A', 'B', 'C']))  #출력: <zip object at 0x...>
+print(list(zip([1, 2, 3], ['A', 'B', 'C'])))  #출력: [(1, 'A'), (2, 'B'), (3, 'C')
+#help() 함수는 파이썬 내장 함수, 모듈, 클래스, 메서드 등에 대한 도움말을 제공
+
+#표준 라이브러리
+#파이썬에서 기본적으로 제공하는 라이브러리
+#예: os, sys, math, random, datetime, time, re, json, urllib, threading, multiprocessing, collections, itertools, functools, subprocess 등
+
+import datetime
+day1 = datetime.date(2021, 12, 14)
+day2 = datetime.date(2023, 4, 5)
+diff = day2 - day1
+print(diff.days)  #출력: 477
+
+import time
+time.time()  #출력: 1617181920.123456
+time.localtime()  #출력: time.struct_time(tm_year=2021, tm_mon=3, tm_mday=30, tm_hour=12, tm_min=34, tm_sec=56, tm_wday=1, tm_yday=89, tm_isdst=0)
+time.asctime()  #출력: 'Tue Mar 30 12:34:56 2021'
+time.ctime() #출력: 'Tue Mar 30 12:34:56 2021'
+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())  #출력: '2021-03-30 12:34:56'
+time.sleep(1)  #1초 대기 
+
+import math
+math.gcd(60, 100, 80)  #출력: 20
+math.lcm(60, 100, 80)  #출력: 240
+
+import random
+random.random()  #출력: 0.1234567890123456
+random.randint(1, 10)  #출력: 7
+random.choice(['apple', 'banana', 'cherry'])  #출력: 'banana'
+random.sample(range(1, 46), 6)  #출력: [3, 15, 22, 27, 33, 41]
+random.shuffle([1, 2, 3, 4, 5])  #출력: [3, 1, 4, 5, 2] 
+
+import itertools 
+students = ['한민서', '황지민', '이영철', '이광수', '김승민']
+snacks =['사탕', '초콜릿', '젤리']
+result = itertools.zip_longest(students, snacks, fillvalue='새우깡')
+print(list(result))
+#출력: [('한민서', '사탕'), ('황지민', '초콜릿'), ('이영철', '젤리'), ('이광수', '새우깡'), ('김승민', '새우깡')]   
+itertools.permutations(iterable, r) 

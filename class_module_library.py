@@ -224,39 +224,3 @@ print(zip([1, 2, 3], ['A', 'B', 'C']))  #출력: <zip object at 0x...>
 print(list(zip([1, 2, 3], ['A', 'B', 'C'])))  #출력: [(1, 'A'), (2, 'B'), (3, 'C')
 #help() 함수는 파이썬 내장 함수, 모듈, 클래스, 메서드 등에 대한 도움말을 제공
 
-#표준 라이브러리
-#파이썬에서 기본적으로 제공하는 라이브러리
-#예: os, sys, math, random, datetime, time, re, json, urllib, threading, multiprocessing, collections, itertools, functools, subprocess 등
-
-import datetime
-day1 = datetime.date(2021, 12, 14)
-day2 = datetime.date(2023, 4, 5)
-diff = day2 - day1
-print(diff.days)  #출력: 477
-
-import time
-time.time()  #출력: 1617181920.123456
-time.localtime()  #출력: time.struct_time(tm_year=2021, tm_mon=3, tm_mday=30, tm_hour=12, tm_min=34, tm_sec=56, tm_wday=1, tm_yday=89, tm_isdst=0)
-time.asctime()  #출력: 'Tue Mar 30 12:34:56 2021'
-time.ctime() #출력: 'Tue Mar 30 12:34:56 2021'
-time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())  #출력: '2021-03-30 12:34:56'
-time.sleep(1)  #1초 대기 
-
-import math
-math.gcd(60, 100, 80)  #출력: 20
-math.lcm(60, 100, 80)  #출력: 240
-
-import random
-random.random()  #출력: 0.1234567890123456
-random.randint(1, 10)  #출력: 7
-random.choice(['apple', 'banana', 'cherry'])  #출력: 'banana'
-random.sample(range(1, 46), 6)  #출력: [3, 15, 22, 27, 33, 41]
-random.shuffle([1, 2, 3, 4, 5])  #출력: [3, 1, 4, 5, 2] 
-
-import itertools 
-students = ['한민서', '황지민', '이영철', '이광수', '김승민']
-snacks =['사탕', '초콜릿', '젤리']
-result = itertools.zip_longest(students, snacks, fillvalue='새우깡')
-print(list(result))
-#출력: [('한민서', '사탕'), ('황지민', '초콜릿'), ('이영철', '젤리'), ('이광수', '새우깡'), ('김승민', '새우깡')]   
-itertools.permutations(iterable, r) 

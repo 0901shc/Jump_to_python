@@ -6,7 +6,7 @@ class Dog:
     def __init__(self, name, age):
         self.name = name
         self.age = age
-    def bark(self):
+    def bark(self): 
         print("Woof!")
 #객체 생성: 변수 = 클래스이름()
 my_dog = Dog("Buddy", 3)

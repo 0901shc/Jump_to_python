@@ -64,6 +64,7 @@ a = "Hello"
 print(f"This is a formatted string: {a} World") #f 포맷 문자열
 #포맷 문자열은 변수나 표현식을 문자열 안에 삽입할 때 사용
 
+
 #문자열 연산
 a = "Hello" 
 b = "World" 
